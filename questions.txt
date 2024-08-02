@@ -1,0 +1,194 @@
+1.you are given two lists of different lengths of positive numbers write a algorithm to count the number of elements that are not common to each list.
+
+n=list(map(int,input().split()))
+a=list(map(int,input().split()))
+b=set(n)
+c=set(n)
+d=b.difference(c)
+d_len=len(d)
+e=c.difference(b)
+e_len=len(e)
+sum=d_len+e+e_len
+print(sum)
+
+2. you are playing a online game in the list of n numbers is given the player has to arrange the numbers so that all the odd numbers come after even numbers
+
+a=list(map(int,input().split()))
+li=[]
+for i in a:
+    if i%2==0:
+        li.append(i)
+for i in a:
+    if i%2 !=0:
+        li.append(i)
+print(li)
+        
+
+3.an ecommerce company plans to give discount to the customer the discount is calculated on the bases of bill amount the discount amount is product of sum of all odd digits and sum of even digits of customers bill amount.
+
+a=input()
+even=0
+odd=0
+for i in a:
+    if int(i)%2==0:
+        even+=int(i)
+    else:
+        odd+=int(i)
+prod = even*odd
+print(prod)
+
+4.chaitan went to zoo he given id to each and every animal he saw he wants to determine the id of the most frequently seen animal if more than one type has been spotted the maximum amount return the smallest of their ids.
+
+m=list(map(int,input().split()))
+count=0
+Id=0
+for i in m:
+    c=m.count(i)
+    if(c>count):
+        count=c
+        Id=i
+    elif(c==count and i<Id):
+        Id =i
+print(Id)
+
+
+***sallow copy***
+a=[1,2,34]
+b=a
+a[0]=10
+b[1]=15
+print(a,b)
+
+***deep copy***
+
+a=[1,2,34]
+b=a.copy()
+a[0]=10
+b[1]=15
+print(a,b)
+
+5.A university have following grade policy every student receives grade  in b/w 0 to 100 any grade less 40 is a failing grade a professor at the university wants to round of each grade according to this rules if the difference b/w grade and next multiple of 5 is less than 3 then grade will be round off to next multiple of 5 .if the grade value is less than 38 no rounding occurs as the result will be failing grade writing a algorithm to round of given grades .
+
+a=list(map(int,input().split()))
+list_a=[]
+for i in a:
+    if(i > 38):
+        div=((i//5)+1)*5
+        if(div-i)<3:
+            list_a.append(div)
+        else:
+            list_a.append(i)
+    else:
+        list_a.append(i)
+print(list_a)
+        
+           ******OR*****
+
+a=list(map(int,input().split()))
+for i in range(len(a)):
+    if(a[i] >=38):
+        if((a[i]+1)%5==0):
+            a[i]=a[i]+1
+        elif((a[i]+2)%5==0):
+            a[i]+=2
+print(a)
+
+6.John plays basket ball each season he maintains a records of his play he creates a list the number of times a breaks his season record for most points and least points in a game points scored in a first match establish his record for the season and he begins counting from there.
+
+a=list(map(int,input().split()))
+min_score=a[0]
+max_score=a[0]
+count=0
+c=0
+for i in a:
+    if (max_score < i):
+        count+=1
+        max_score=i
+    elif(min_score < i):
+        c+=1
+        min_score=i
+print(count,c)
+
+7.A person wants to determine the most expensive computer keyboard and USB drive that can be purchased with a given budget given price arrays for keyboards and USB drives and a budget find the cost to buy them. If it is not possible to buy the both the elements return -1.
+
+b=int(input())
+m=list(map(int,input().split()))
+n=list(map(int,input().split()))
+c=0
+for i in m:
+    for j in n:
+        if((i+j)<b): 
+            if((i+j)<b):
+                c=i+j
+        elif(c==0):
+            c=-1
+print(c)
+
+**********OR******
+
+
+b=int(input())
+m=list(map(int,input().split()))
+n=list(map(int,input().split()))
+res=[]
+for i in m:
+    for j in n:
+        if((i+j)<=b):
+            res.append(i+j)
+if(len(res) ==0):
+    print(-1)
+else:
+    print(max(res))
+
+
+8.For given two array integers determine all integers that satisfy the following two conditions
+    1. The elements of first array are all factors of the integer being consider 
+    2. The integer being consider is a factor of all elements of the second array.
+ Determine how many such numbers exists.
+  
+'''all the elements in a should be factor of the number & the number should be factor of b'''
+a=list(map(int,input().split()))
+b=list(map(int,input().split()))
+c=0
+c1=0
+x=0
+for i in range(1,min(b)+1):
+    for j in a:
+        if(i%j==0):
+                c+=1
+    if(c==len(a)):
+        for j in b:
+            if(j%i==0):
+                c1+=1
+    if(c1==len(b)):
+        x=c+c1
+print(x)
+
+9.There is a large pile of sock that must be paired by color given an array of integers representing the color of each sock determine how many pairs of socks with matching colors there are.
+
+a=list(map(int,input().split()))
+s=set(a)
+p=0
+for i in s:
+    c=a.count(i)
+    p=p+(c//2)
+print(p)
+
+10. Given an array of integer find longest subarray where the absolute difference b/w any two elements is less than or equals to 1.
+
+
+a=list(map(int,input().split()))
+b=set(a)
+count=0
+for i in b:
+    c=a.count(i)
+    c1=a.count(i+1)
+    c2=a.count(i-1)
+    if(c1>c2):
+        c=c+c1
+    else:
+        c+=c2
+    if(c>count):
+        count=c
+print(count)
+        
