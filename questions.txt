@@ -8,7 +8,7 @@ d=b.difference(c)
 d_len=len(d)
 e=c.difference(b)
 e_len=len(e)
-sum=d_len+e+e_len
+sum=d_len+e_len
 print(sum)
 
 2. you are playing a online game in the list of n numbers is given the player has to arrange the numbers so that all the odd numbers come after even numbers
